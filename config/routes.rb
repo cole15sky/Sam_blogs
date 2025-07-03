@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   mount ActiveStorage::Engine => "/rails/active_storage"
 
   root "home#index"
+  get "about", to: "about#index"
 end
