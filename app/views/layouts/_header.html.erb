@@ -17,15 +17,16 @@
       class: "#{current_page?(articles_path) ? 'bg-indigo-700' : 'hover:bg-indigo-700'} text-white px-4 py-2 rounded-md transition" %>
 </li>
 <li>
+  <%= link_to "About", about_path,
+      class: "#{current_page?(about_path) ? 'bg-indigo-700' : 'hover:bg-indigo-700'} text-white px-4 py-2 rounded-md transition" %>
+</li>
+<li>
   <%= link_to "Gallery", galleries_path,
       class: "#{current_page?(galleries_path) ? 'bg-indigo-700' : 'hover:bg-indigo-700'} text-white px-4 py-2 rounded-md transition" %>
 </li>
 
       <% if user_signed_in? %>
         <li><%= link_to "Sam's Panel", "#", class: "hover:bg-indigo-700 text-white px-4 py-2 rounded-md transition" %></li>
-        <li>
-          <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "hover:bg-indigo-700 text-white px-4 py-2 rounded-md transition" %>
-        </li>
       <% end %>
     </ul>
 
@@ -60,12 +61,10 @@
   <ul class="flex flex-col items-center justify-center space-y-4 py-4 px-6 h-full">
     <li><%= link_to "Home", root_path, class: "hover:bg-indigo-700 px-4 py-2 rounded-md transition block" %></li>
     <li><%= link_to "Blogs", articles_path, class: "hover:bg-indigo-700 px-4 py-2 rounded-md transition block" %></li>
+    <li><%= link_to "About", about_path, class: "hover:bg-indigo-700 px-4 py-2 rounded-md transition block" %></li>
     <li><%= link_to "Gallery", galleries_path, class: "block py-2 px-3 hover:bg-indigo-100 rounded-md" %></li>
     <% if user_signed_in? %>
-      <li><%= link_to "Post", "#", class: "block py-2 px-3 hover:bg-indigo-100 rounded-md" %></li>
-      <li>
-        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "w-full text-left py-2 px-3 hover:bg-indigo-100 rounded-md" %>
-      </li>
+      <li><%= link_to "Sam's Panel", "#", class: "block py-2 px-3 hover:bg-indigo-100 rounded-md" %></li>
     <% end %>
   </ul>
 </div>
