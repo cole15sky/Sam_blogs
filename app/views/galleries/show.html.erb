@@ -1,0 +1,11 @@
+<h1><%= @gallery.title %></h1>
+
+
+<div style="display:flex; flex-wrap: wrap; gap:10px;">
+  <% @gallery.images.each do |img| %>
+    <%= image_tag img.variant(resize_to_limit: [400, 300]), alt: @gallery.title, style: "border-radius: 5px;" %>
+  <% end %>
+</div>
+
+<%= link_to 'Edit', edit_gallery_path(@gallery), class: "btn btn-warning mt-3" %> |
+<%= link_to 'Back to Galleries', galleries_path, class: "btn btn-secondary mt-3" %>

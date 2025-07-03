@@ -1,0 +1,21 @@
+
+
+<div>
+<h1>Galleries</h1>
+
+<%= link_to 'New Gallery', new_gallery_path, class: "btn btn-primary mb-3" %>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+  <% @galleries.each do |gallery| %>  
+    <div style="border:1px solid #ccc; padding:10px; margin-bottom:20px;">
+      <h2><%= link_to gallery.title, gallery_path(gallery) %></h2>
+
+      <div style="display:flex; flex-wrap: wrap; gap:10px;">
+        <% gallery.images.each do |img| %>
+          <%= image_tag url_for(img), alt: gallery.title, style: "border-radius: 5px;" %>
+        <% end %>
+      </div>
+    </div>
+    
+  <% end %>
+</div>
